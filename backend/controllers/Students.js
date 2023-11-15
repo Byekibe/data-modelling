@@ -22,4 +22,13 @@ const getStudent = (req, res) => {
 
 const getBestStudent = (req, res) => {};
 
-export { getStudents, getStudent };
+const getKindergatenStudent = (req, res) => {
+  const q = "SELECT * FROM SchoolData WHERE grade_level=?";
+  db.query(q, [req.params.grade], (err, data) => {
+    if (err) return res.status(500).send(err);
+
+    return res.status(200).json(data);
+  });
+};
+
+export { getStudents, getStudent, getKindergatenStudent };
