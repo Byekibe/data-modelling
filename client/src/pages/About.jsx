@@ -1,15 +1,13 @@
 import Header from "../components/Header";
-import AllStudents from "../components/AllStudents";
 
-const StudentsPage = () => {
+export default function About() {
   return (
     <>
       <Header />
       <div className="container">
-        <AllStudents />
+        <h2>About the project:</h2>
+        <p>Made with ❤️ ❤️love ❤️ ❤️ by Pierre</p>
       </div>
     </>
   );
-};
-
-export default StudentsPage;
+}

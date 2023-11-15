@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+.input {
+  width: 6.25em;
+}
+
+.input[type="text"] {
+  border: none;
+}
+
+.copied {
+  display: flex;
+  flex-wrap: wrap;
+}

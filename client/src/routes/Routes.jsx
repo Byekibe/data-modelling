@@ -7,6 +7,8 @@ import {
 import HomePage from "../pages/homePage.jsx";
 import StudentsPage from "../pages/studentsPage.jsx";
 import ContactPage from "../pages/ContactPage.jsx";
+import GradedStudents from "../pages/gradedStudents.jsx";
+import About from "../pages/About.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "about",
-    element: <div>About</div>,
+    element: <About />,
   },
   {
     path: "students",
@@ -24,6 +26,11 @@ const router = createBrowserRouter([
   {
     path: "contact",
     element: <ContactPage />,
+  },
+
+  {
+    path: "graded",
+    element: <GradedStudents />,
   },
 ]);
 
