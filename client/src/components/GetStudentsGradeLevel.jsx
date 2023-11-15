@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ClipboardCopy from "./CopyToClipBoard";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { MdContentCopy } from "react-icons/md";
 
 const GetStudentsGradeLevel = () => {
   const [gradedStudents, setGradedStudents] = useState([]);
@@ -29,21 +31,147 @@ const GetStudentsGradeLevel = () => {
     <div className="container">
       <div className="copied">
         <div className="d-flex copied">
-          <ClipboardCopy copyText="Kindergarten" />
-          <ClipboardCopy copyText="1st Grade" />
-          <ClipboardCopy copyText="2nd Grade" />
-          <ClipboardCopy copyText="3rd Grade" />
-          <ClipboardCopy copyText="4th Grade" />
-          <ClipboardCopy copyText="5th Grade" />
-          <ClipboardCopy copyText="6th Grade" />
+          <div>
+            Kindergarten
+            <CopyToClipboard
+              text="Kindergarten"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            Grade 1
+            <CopyToClipboard
+              text="1st Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            Grade 2
+            <CopyToClipboard
+              text="2nd Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            3rd Grade
+            <CopyToClipboard
+              text="3rd Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            4th Grade
+            <CopyToClipboard
+              text="4th Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            5th Grade
+            <CopyToClipboard
+              text="5th Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          6th Grade
+          <CopyToClipboard
+            text="6th Grade"
+            onCopy={() => window.alert("Copied to Clipboard in the input box")}
+          >
+            <MdContentCopy />
+          </CopyToClipboard>
         </div>
         <div className="d-flex copied">
-          <ClipboardCopy copyText="7th Grade" />
-          <ClipboardCopy copyText="8th Grade" />
-          <ClipboardCopy copyText="9th Grade" />
-          <ClipboardCopy copyText="10th Grade" />
-          <ClipboardCopy copyText="11th Grade" />
-          <ClipboardCopy copyText="12th Grade" />
+          <div>
+            7th Grade
+            <CopyToClipboard
+              text="7th Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            8th Grade
+            <CopyToClipboard
+              text="8th Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            9th Grade
+            <CopyToClipboard
+              text="9th Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            10th Grade
+            <CopyToClipboard
+              text="10th Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            11th Grade
+            <CopyToClipboard
+              text="11th Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
+          <div>
+            12th Grade
+            <CopyToClipboard
+              text="12th Grade"
+              onCopy={() =>
+                window.alert("Copied to Clipboard in the input box")
+              }
+            >
+              <MdContentCopy />
+            </CopyToClipboard>
+          </div>
         </div>
       </div>
       <br />
@@ -53,7 +181,7 @@ const GetStudentsGradeLevel = () => {
         <input
           type="text"
           value={level}
-          placeholder="Example of grades available above copy and paste"
+          placeholder="Input Box"
           onChange={(e) => setLevel(e.target.value)}
         />
         <button onClick={() => setLevel("")}>Delete</button>
