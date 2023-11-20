@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdContentCopy } from "react-icons/md";
+import { FaArrowUp, FaArrowDownLong } from "react-icons/fa6";
 
-const GetStudentsGradeLevel = () => {
+const RankGradedStudents = () => {
   const [gradedStudents, setGradedStudents] = useState([]);
   const [level, setLevel] = useState("");
   const [loading, setLoading] = useState(true);
   // const serverAddress = `/api/students/level/${level}`;
-  const serverAddress = `http://localhost:7070/api/students/level/${level}`;
+  const serverAddress = `http://localhost:7070/api/students/rank/${level}`;
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(serverAddress);
@@ -23,8 +24,6 @@ const GetStudentsGradeLevel = () => {
     e.preventDefault();
     console.log("Submited");
   }
-
-  // console.log(gradedStudents);
 
   return (
     <div className="container">
@@ -175,8 +174,15 @@ const GetStudentsGradeLevel = () => {
       </div>
       <br />
       <br />
+      <div>
+        <h3 style={{ color: "red" }}>
+          Copy grade from list above <FaArrowUp />
+        </h3>
+      </div>
       <form onSubmit={handleSubmit}>
-        <h4 style={{ color: "red" }}>Paste Here</h4>
+        <h4 style={{ color: "red" }}>
+          Paste Here <FaArrowDownLong />
+        </h4>
         <input
           type="text"
           value={level}
@@ -185,14 +191,15 @@ const GetStudentsGradeLevel = () => {
         />
         <button onClick={() => setLevel("")}>Delete</button>
         {/* <button>Get students</button> */}
-        <br />
-        <br />
-        {gradedStudents.length > 0
-          ? JSON.stringify(gradedStudents)
-          : "[Nothing to show copy and paste to input box above]"}
       </form>
+      <h3>{level} Grade results</h3>
+      <br />
+      <br />
+      {gradedStudents.length > 0
+        ? JSON.stringify(gradedStudents)
+        : "[Nothing to show copy and paste to input box above]"}
     </div>
   );
 };
 
-export default GetStudentsGradeLevel;
+export default RankGradedStudents;

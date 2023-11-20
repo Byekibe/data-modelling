@@ -8,6 +8,7 @@ import HomePage from "../pages/homePage.jsx";
 import StudentsPage from "../pages/studentsPage.jsx";
 import ContactPage from "../pages/ContactPage.jsx";
 import GradedStudents from "../pages/gradedStudents.jsx";
+import GradedRankedPage from "../pages/gradedRankedPage.jsx";
 import About from "../pages/About.jsx";
 
 const router = createBrowserRouter([
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
   {
     path: "graded",
     element: <GradedStudents />,
+  },
+
+  {
+    path: "graded/ranked",
+    element: <GradedRankedPage />,
   },
 ]);
 

@@ -5,7 +5,7 @@ export default function Header() {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand" href="#">
-          Huku School
+          Huku School Mngt System
         </Link>
         <button
           className="navbar-toggler"

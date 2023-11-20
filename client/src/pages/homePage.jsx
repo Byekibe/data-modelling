@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-import ClipboardCopy from "../components/CopyToClipBoard";
 
 const HomePage = () => {
   return (
@@ -13,6 +12,9 @@ const HomePage = () => {
           </li>
           <li>
             <Link to="/graded">Student by grade</Link>
+          </li>
+          <li>
+            <Link to="/graded/ranked/">Ranked by Grade</Link>
           </li>
         </ul>
       </div>
