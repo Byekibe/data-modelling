@@ -6,8 +6,8 @@ const GetStudentsGradeLevel = () => {
   const [gradedStudents, setGradedStudents] = useState([]);
   const [level, setLevel] = useState("");
   const [loading, setLoading] = useState(true);
-  // const serverAddress = `/api/students/level/${level}`;
-  const serverAddress = `http://localhost:7070/api/students/level/${level}`;
+  const serverAddress = `/api/students/level/${level}`;
+  // const serverAddress = `http://localhost:7070/api/students/level/${level}`;
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(serverAddress);

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 const MainContent = () => {
   const [allData, setAllData] = useState([]);
-  // const serverAddress = "/api/students";
-  const serverAddress = "http://localhost:7070/api/students";
+  const serverAddress = "/api/students";
+  // const serverAddress = "http://localhost:7070/api/students";
   useEffect(() => {
     const fetchData = async () => {
       try {
