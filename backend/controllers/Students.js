@@ -22,7 +22,7 @@ const getStudent = (req, res) => {
 
 const getBestStudent = (req, res) => {};
 
-const getKindergatenStudent = (req, res) => {
+const getStudentLevel = (req, res) => {
   const q = "SELECT * FROM SchoolData WHERE grade_level=?";
   db.query(q, [req.params.grade], (err, data) => {
     if (err) return res.status(500).send(err);
@@ -31,4 +31,15 @@ const getKindergatenStudent = (req, res) => {
   });
 };
 
-export { getStudents, getStudent, getKindergatenStudent };
+const getTotalMarks = (req, res) => {
+  const q =
+    "SELECT first_name, last_name, Maths + English + Kiswahili + Social_studies + Science AS Total_marks FROM SchoolData WHERE grade_level = ? ORDER BY Total_marks DESC";
+
+  db.query(q, [req.params.grade], (err, data) => {
+    if (err) return res.status(500).send(err);
+
+    return res.status(200).json(data);
+  });
+};
+
+export { getStudents, getStudent, getStudentLevel, getTotalMarks };
