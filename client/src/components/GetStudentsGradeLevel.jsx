@@ -6,8 +6,13 @@ const GetStudentsGradeLevel = () => {
   const [gradedStudents, setGradedStudents] = useState([]);
   const [level, setLevel] = useState("");
   const [loading, setLoading] = useState(true);
-  const serverAddress = `/api/students/level/${level}`;
-  // const serverAddress = `http://localhost:7070/api/students/level/${level}`;
+  const [show, setShow] = useState(false);
+
+  const serverAddress =
+    import.meta.env.VITE_NODE_ENV == "development"
+      ? `http://localhost:7070/api/students/level/${level}`
+      : `/api/students/level/${level}`;
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(serverAddress);
@@ -17,23 +22,35 @@ const GetStudentsGradeLevel = () => {
     };
 
     fetchData();
-  }, [level]);
+  }, [show]);
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log("Submited");
+
+    setShow((prevState) => !prevState);
   }
 
   // console.log(gradedStudents);
 
   return (
     <div className="container">
-      <div className="copied">
+      <h2 className="text-center">Copy a grade here!</h2>
+      <div
+        style={{
+          border: "2px solid black",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        className="copied"
+      >
         <div className="d-flex copied">
           <div>
             Kindergarten
             <CopyToClipboard
               text="Kindergarten"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -45,6 +62,7 @@ const GetStudentsGradeLevel = () => {
             Grade 1
             <CopyToClipboard
               text="1st Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -56,6 +74,7 @@ const GetStudentsGradeLevel = () => {
             Grade 2
             <CopyToClipboard
               text="2nd Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -67,6 +86,7 @@ const GetStudentsGradeLevel = () => {
             3rd Grade
             <CopyToClipboard
               text="3rd Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -78,6 +98,7 @@ const GetStudentsGradeLevel = () => {
             4th Grade
             <CopyToClipboard
               text="4th Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -89,6 +110,7 @@ const GetStudentsGradeLevel = () => {
             5th Grade
             <CopyToClipboard
               text="5th Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -99,6 +121,7 @@ const GetStudentsGradeLevel = () => {
           6th Grade
           <CopyToClipboard
             text="6th Grade"
+            className="text-warning"
             onCopy={() => window.alert("Copied to Clipboard in the input box")}
           >
             <MdContentCopy />
@@ -109,6 +132,7 @@ const GetStudentsGradeLevel = () => {
             7th Grade
             <CopyToClipboard
               text="7th Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -120,6 +144,7 @@ const GetStudentsGradeLevel = () => {
             8th Grade
             <CopyToClipboard
               text="8th Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -131,6 +156,7 @@ const GetStudentsGradeLevel = () => {
             9th Grade
             <CopyToClipboard
               text="9th Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -142,6 +168,7 @@ const GetStudentsGradeLevel = () => {
             10th Grade
             <CopyToClipboard
               text="10th Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -153,6 +180,7 @@ const GetStudentsGradeLevel = () => {
             11th Grade
             <CopyToClipboard
               text="11th Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -164,6 +192,7 @@ const GetStudentsGradeLevel = () => {
             12th Grade
             <CopyToClipboard
               text="12th Grade"
+              className="text-warning"
               onCopy={() =>
                 window.alert("Copied to Clipboard in the input box")
               }
@@ -183,6 +212,7 @@ const GetStudentsGradeLevel = () => {
           placeholder="Input Box"
           onChange={(e) => setLevel(e.target.value)}
         />
+        <button type="submit">Submit</button>
         <button onClick={() => setLevel("")}>Delete</button>
         {/* <button>Get students</button> */}
         <br />

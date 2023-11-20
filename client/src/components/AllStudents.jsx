@@ -3,8 +3,13 @@ import Spinner from "./Spinner";
 
 const AllStudents = () => {
   const [allData, setAllData] = useState([]);
-  const serverAddress = "/api/students";
-  // const serverAddress = "http://localhost:7070/api/students";
+
+  const serverAddress =
+    import.meta.env.VITE_NODE_ENV == "development"
+      ? "http://localhost:7070/api/students"
+      : "/api/students";
+
+  console.log(serverAddress);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

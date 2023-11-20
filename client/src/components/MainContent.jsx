@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 
 const MainContent = () => {
   const [allData, setAllData] = useState([]);
-  const serverAddress = "/api/students";
+  // const serverAddress = "/api/students";
   // const serverAddress = "http://localhost:7070/api/students";
+
+  const serverAddress =
+    import.meta.env.VITE_NODE_ENV == "development"
+      ? "http://localhost:7070/api/students"
+      : "/api/students";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
